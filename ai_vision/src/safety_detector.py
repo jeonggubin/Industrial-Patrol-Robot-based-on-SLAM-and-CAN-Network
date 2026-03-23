@@ -127,6 +127,8 @@ def postprocess(outputs, ratio, pad_w, pad_h):
     offset_boxes = (boxes_arr + (class_ids_all[:, np.newaxis] * MAX_WH * np.array([1, 1, 0, 0]))).tolist()
     
     # 겹침 정도(IOU)를 따져서 가장 점수 높은 박스만 골라냅니다.
+    # 앞에서 미리 걸러냈더라도, 함수 입장에서는 "내가 최종적으로 신뢰할 기준점"이 무엇인지 알아야 내부 로직을 완성할 수 있기 때문에 한 번 더 명시해 주는 것이 안전.
+    # NMSBoxes 함수는 고작 몇십 개 수준의 "알짜배기" 박스만 처리하면 되므로 전체적인 실행 속도가 라즈베리 파이 같은 환경에서 훨씬 유리.
     indices = cv2.dnn.NMSBoxes(offset_boxes, scores_all.tolist(), CONFIDENCE_THRES, IOU_THRES) 
     
     # 최종적으로 살아남은 박스들만 모아서 리스트로 반환합니다.
