@@ -127,7 +127,7 @@ def postprocess(outputs, ratio, pad_w, pad_h):
     offset_boxes = (boxes_arr + (class_ids_all[:, np.newaxis] * MAX_WH * np.array([1, 1, 0, 0]))).tolist()
     
     # 겹침 정도(IOU)를 따져서 가장 점수 높은 박스만 골라냅니다.
-    indices = cv2.dnn.NMSBoxes(offset_boxes, scores_all.tolist(), CONFIDENCE_THRES, IOU_THRES) #위에 있는데 한번 더 거르는 이유?
+    indices = cv2.dnn.NMSBoxes(offset_boxes, scores_all.tolist(), CONFIDENCE_THRES, IOU_THRES) 
     
     # 최종적으로 살아남은 박스들만 모아서 리스트로 반환합니다.
     if len(indices) == 0: return []
