@@ -46,7 +46,14 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 ---
 
 ## 🎬 시연 영상
+https://www.youtube.com/watch?v=PkCoHTn6tds
+자율주행 영상
 
+https://www.youtube.com/shorts/djdbJ7C_Avg
+센서 조절 영상
+
+https://www.youtube.com/shorts/oN8zZtJH-qE
+수동조작 영상
 ---
 
 ## ⚠️ 보완점 및 향후 과제
