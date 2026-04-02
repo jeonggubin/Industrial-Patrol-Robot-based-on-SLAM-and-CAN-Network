@@ -26,7 +26,7 @@ LIDAR 기반 SLAM 및 CAN 네트워크 기반 자율 주행과 YOLOv5 비전 기
 | 분류 | 기술 Stack |
 | :--- | :--- |
 | **Languages** | C, Python |
-| **Communication** | Notion, Discord, 카카오톡 |
+| **Communication** |  |
 | **Frameworks** |  |
 | **Database** |  |
 | **Hardware/OS** | Raspberry Pi 5, STM32F446RE, STM32F429ZI, USB-CAN 트랜시버(SN65HVD230)  |
