@@ -56,7 +56,7 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 
 | 이름 | 역할 | 담당 파트 |
 |----------|----------|----------|
-| 이상현 | Project Leader | SLAM 자율주행 및 서버 |
+| 이상현 | Project Leader/Backend | SLAM 자율주행 및 서버 |
 | 김현주 | Project Manager/Backend |  |
 | 김준기 | Backend | Network(Can) |
 | 허준형 | Backend/Frontend |  |
