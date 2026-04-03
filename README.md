@@ -27,7 +27,7 @@ LIDAR 기반 SLAM 및 CAN 네트워크 기반 자율 주행과 YOLOv5 비전 기
 | :--- | :--- |
 | **Languages** | C, Python, JavaScript |
 | **Communication** |  |
-| **Frameworks** |  |
+| **Frameworks** | ROS2, OpenCV, Pytorch, YOLOv5nu, (추가) |
 | **Database** |  |
 | **Hardware/OS** | Raspberry Pi 5, STM32F446RE, STM32F429ZI, USB-CAN 트랜시버(SN65HVD230)  |
 
