@@ -13,7 +13,7 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 <img width="400" height="300" alt="그림1" src="https://github.com/user-attachments/assets/0f750556-5562-4eaf-bd01-d30efd3d3e59" />
 <img width="400" height="300" alt="그림2" src="https://github.com/user-attachments/assets/f6424887-e6b1-44cc-ac80-2b343a6696f2" />
 
-국가데이터처에 따르면 산업재해자 수는 매년 지속적으로 증가하는 추세입니다. 
+국가데이터처 "산업재해 현황분석" 에 따르면 산업재해자 수는 매년 지속적으로 증가하는 추세입니다. 
 
 이러한 데이터가 시사하는 심각성과 인력 중심 현장 감시의 구조적 한계를 극복하기 위해, LiDAR 기반 SLAM과 YOLOv5 비전 기술을 결합한 자율 순찰 로봇 시스템을 개발했습니다. 
 
