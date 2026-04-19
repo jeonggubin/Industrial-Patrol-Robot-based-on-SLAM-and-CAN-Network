@@ -1,17 +1,17 @@
 # Industrial Patrol Robot based on SLAM and CAN Network
 SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 
-<img width="200" height="300" alt="그림3" src="https://github.com/user-attachments/assets/28fa9fc0-1c5c-4ec4-ae9e-e11bdbeb8b4f" />
-<img width="200" height="300" alt="그림4" src="https://github.com/user-attachments/assets/71c28132-f9ac-4132-b884-b8513f7b850f" />
-<img width="200" height="300" alt="그림5" src="https://github.com/user-attachments/assets/9b4e55bc-495b-4e26-a90c-e3986ea74b97" />
-<img width="200" height="300" alt="그림6" src="https://github.com/user-attachments/assets/a431b65f-a0f1-4496-a931-85e59f26f6e1" />
+<img width="200" height="300" alt="그림3" src="https://github.com/user-attachments/assets/28fa9fc0-1c5c-4ec4-ae9e-e11bdbeb8b4f" >
+<img width="200" height="300" alt="그림4" src="https://github.com/user-attachments/assets/71c28132-f9ac-4132-b884-b8513f7b850f" >
+<img width="200" height="300" alt="그림5" src="https://github.com/user-attachments/assets/9b4e55bc-495b-4e26-a90c-e3986ea74b97" >
+<img width="200" height="300" alt="그림6" src="https://github.com/user-attachments/assets/a431b65f-a0f1-4496-a931-85e59f26f6e1" >
 
 
 ## 🛰️ Industrial-Safety-Patrol-Mini-Project
 
 ### 🛠 개발 배경
-<img width="400" height="300" alt="그림1" src="https://github.com/user-attachments/assets/0f750556-5562-4eaf-bd01-d30efd3d3e59" />
-<img width="400" height="300" alt="그림2" src="https://github.com/user-attachments/assets/f6424887-e6b1-44cc-ac80-2b343a6696f2" />
+<img width="400" height="300" alt="그림1" src="https://github.com/user-attachments/assets/0f750556-5562-4eaf-bd01-d30efd3d3e59" >
+<img width="400" height="300" alt="그림2" src="https://github.com/user-attachments/assets/f6424887-e6b1-44cc-ac80-2b343a6696f2" >
 
 국가데이터처 "산업재해 현황분석" 에 따르면 산업재해자 수는 매년 지속적으로 증가하는 추세입니다. 
 
