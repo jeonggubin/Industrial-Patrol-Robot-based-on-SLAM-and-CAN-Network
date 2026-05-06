@@ -109,4 +109,4 @@ LIDAR 기반 SLAM 및 CAN 네트워크 기반 자율 주행과 YOLOv5 비전 기
 | 김현주 | Project Manager/Firmware | (추가) |
 | 김준기 | Backend | Network(Can), (추가) |
 | 허준형 | Firmware/Frontend | (추가) |
-| 정구빈 | Backend/Edge | Vision AI 및 영상/데이터 송신 파이프라인 구축 |
+| 정구빈 | Backend/Edge AI | Vision AI 및 영상/데이터 송신 파이프라인 구축 |
