@@ -72,7 +72,7 @@ LIDAR 기반 SLAM 및 CAN 네트워크 기반 자율 주행과 YOLOv5 비전 기
   <tr>
     <td align="center"><b>1. SLAM 자율주행 시연</b></td>
     <td align="center"><b>2. 센서 동작 테스트</b></td>
-    <td align="center"><b>3. 실시간 수동 원격 제어 시연</b></td>
+    <td align="center"><b>3. 실시간 수동 원격 제어 및 모니터링</b></td>
   </tr>
   <tr>
     <td>
