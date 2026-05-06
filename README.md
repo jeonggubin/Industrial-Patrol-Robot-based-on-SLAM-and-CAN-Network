@@ -68,14 +68,30 @@ LIDAR 기반 SLAM 및 CAN 네트워크 기반 자율 주행과 YOLOv5 비전 기
 ---
 
 ## 🎬 시연 영상
-https://www.youtube.com/watch?v=PkCoHTn6tds
-자율주행 영상
-
-https://www.youtube.com/shorts/djdbJ7C_Avg
-센서조작 영상
-
-https://www.youtube.com/shorts/oN8zZtJH-qE
-수동조작 영상
+<table align="center">
+  <tr>
+    <td align="center"><b>1. 자율 주행 시연</b></td>
+    <td align="center"><b>2. 센서 조작 시연</b></td>
+    <td align="center"><b>3. 수동 조작 시연</b></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://youtu.be/PkCoHTn6tds">
+        <img src="https://img.youtube.com/vi/PkCoHTn6tds/0.jpg" width="300px">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/shorts/djdbJ7C_Avg">
+        <img src="https://img.youtube.com/vi/djdbJ7C_Avg/0.jpg" width="300px">
+      </a>
+    </td>
+    <td>
+      <a href="https://youtube.com/shorts/oN8zZtJH-qE">
+        <img src="https://img.youtube.com/vi/oN8zZtJH-qE/0.jpg" width="300px">
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
 
