@@ -88,7 +88,7 @@ Raspberry Pi 5에서 카메라 영상을 처리하고, YOLOv5nu 모델을 이용
 
 <div align="center">
   <img src="your_motor_control_video.gif" width="80%">
-  <p><i>[실시간 안전 감지 및 CAN 통신 기반 모터 제어 시연]</i></p>
+  <p><i>[실시간 안전 감지 및 CAN 통신 기반 모터 제어 시연 gif로 올릴 예정]</i></p>
 </div>
 
 <div align="center">
