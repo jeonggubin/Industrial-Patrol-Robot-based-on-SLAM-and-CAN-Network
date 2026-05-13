@@ -84,7 +84,37 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 ### 3. Vision AI 안전 감지
 
 Raspberry Pi 5에서 카메라 영상을 처리하고, YOLOv5nu 모델을 이용해 작업자를 인식합니다.  
-안전모 또는 안전조끼 미착용이 감지되면 경고 신호를 제어부로 전달합니다.
+안전모 또는 안전조끼 미착용이 감지되면 경고 신호를 제어부로 전달하여 모터를 정지시킵니다.
+
+<div align="center">
+  <img src="your_motor_control_video.gif" width="80%">
+  <p><i>[실시간 안전 감지 및 CAN 통신 기반 모터 제어 시연]</i></p>
+</div>
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" style="border: none;">
+        <img src="https://github.com/user-attachments/assets/ccc83bac-695a-45b2-8593-72d67ca5818b" width="380"><br>
+        <b>[DANGER] 모두 미착용</b>
+      </td>
+      <td align="center" style="border: none;">
+        <img src="https://github.com/user-attachments/assets/8a43ea39-e98f-4433-8cd4-0536a7763c00" width="380"><br>
+        <b>[DANGER] 안전모만 착용</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="border: none;">
+        <img src="https://github.com/user-attachments/assets/aebacec1-522b-4d51-a234-be4f3aa415c1" width="380"><br>
+        <b>[DANGER] 안전조끼만 착용</b>
+      </td>
+      <td align="center" style="border: none;">
+        <img src="https://github.com/user-attachments/assets/7053b866-030a-44d3-aac7-0098df0c8ae9" width="380"><br>
+        <b>[SAFE] 모든 장비 착용</b>
+      </td>
+    </tr>
+  </table>
+</div>
 
 - 실시간 카메라 영상 처리
 - YOLOv5nu 기반 작업자 감지
