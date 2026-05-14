@@ -54,3 +54,30 @@ if (time.time() - state_start_time) >= TRIGGER_DELAY:
     send_udp(confirmed_flag)
 ```
 
+## 4. 실시간 데이터 송출 및 통신 (Integration)
+
+AI 판단 결과를 로봇 제어부와 관제 센터로 전달하기 위해 두 가지 통신 방식을 병행하여 시스템을 통합했습니다.
+
+* **⚡ UDP 기반 초저지연 경보 전송**
+    * 판단 결과(`SAFE`/`DANGER`)를 `127.0.0.1:9999`로 전송하여 하위 제어기(STM32) 또는 메인 로직이 즉각적으로 반응할 수 있도록 설계했습니다.
+    * **Non-blocking 소켓**을 사용하여 네트워크 지연이 전체 AI 추론 루프(Main Loop)에 영향을 주지 않는 비동기 구조를 구현했습니다.
+
+* **🎥 FFmpeg 기반 RTSP 스트리밍**
+
+| | |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/d3e7476b-f5b5-44fc-9ab6-6729317d35a6" height="350"> | <img src="https://github.com/user-attachments/assets/c7e121fe-7ed7-480d-9889-572788740973" height="350"> |
+
+* OpenCV로 처리된 시각화 프레임을 `libx264` 코덱으로 압축하여 외부 RTSP 서버로 송출합니다.
+* `ultrafast` 프리셋과 `zerolatency` 튜닝을 적용하여, 관제 센터에서 현장 상황을 실시간(Real-time)으로 모니터링할 수 있는 저지연 스트리밍 환경을 구축했습니다.
+
+## 5. 주요 구현 기술 (Technical Implementation)
+
+임베디드 환경에서의 효율적인 연산과 정확도 확보를 위해 적용한 핵심 기술 스택입니다.
+
+* **🚀 ONNX Runtime 활용**
+    * 학습된 PyTorch 모델을 **ONNX 형식으로 변환**하여 라즈베리파이 5 CPU 환경에서 추론 속도를 극대화했습니다.
+* **🖼️ Letterbox 전처리**
+    * 입력 이미지의 비율을 유지하면서 `640x480` 해상도로 리사이징하고 여백을 채우는 전처리를 통해, 다양한 카메라 각도에서도 탐지 강인함을 유지했습니다.
+* **🎯 다중 클래스 NMS (Non-Maximum Suppression)**
+    * 클래스별 **오프셋(Offset) 로직**을 적용하여, 작업자(Person)와 안전 장비(Helmet/Vest)가 겹쳐 있는 복잡한 상황에서도 박스 손실 없이 개별 객체를 정확하게 분리 탐지합니다.
