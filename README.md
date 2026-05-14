@@ -58,6 +58,9 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 
 ---
 
+## 🧩 시스템 구성도
+<img width="1120" height="859" alt="스크린샷 2026-03-10 101036" src="https://github.com/user-attachments/assets/07cd6d3f-be38-4ac4-994d-08cbed580008" />
+
 ## 🔍 상세 기능 설명
 
 ### 1. 시스템 개요
