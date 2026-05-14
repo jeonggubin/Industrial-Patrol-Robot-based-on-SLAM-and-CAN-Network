@@ -9,7 +9,7 @@
 * **데이터 구성**: `Helmet`, `No-Helmet`, `No-Vest`, `Person`, `Vest` 총 5개 클래스
 * **학습 전략**: 실제 현장에서 발생할 수 있는 미착용 사례 데이터를 집중 확보하여 학습 편향을 최소화했습니다.
 
-| 데이터셋 클래스 분포 | 탐지 객체 가시화 샘플 |
+| 데이터셋 클래스 분포 | 탐지 객체 샘플 |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/f110d069-4a6f-413a-934b-e3820e2d0d92" width="400"> | <img src="https://github.com/user-attachments/assets/4464deda-5692-4cce-9e6a-fa3b8c2a6e3e" width="400"> |
 
