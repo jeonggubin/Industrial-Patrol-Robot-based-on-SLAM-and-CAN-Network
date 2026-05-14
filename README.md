@@ -86,9 +86,6 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 
 ### 3. Vision AI 안전 감지
 
-**[ 🛠️ Core Technology ]**
-`YOLOv5nu` `Real-time Inference` `Debouncing Logic` `CAN/UDP Communication`
-
 Raspberry Pi 5에서 카메라 영상을 처리하고, YOLOv5nu 모델을 이용해 작업자를 인식합니다.  
 안전모 또는 안전조끼 미착용이 감지되면 경고 신호를 제어부로 전달하여 모터를 정지시킵니다.
 
