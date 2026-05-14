@@ -119,26 +119,6 @@ Raspberry Pi 5에서 카메라 영상을 처리하고, YOLOv5nu 모델을 이용
   </table>
 </div>
 
-### ⚡ 연산 효율화 (Frame Skipping)
-라즈베리파이의 CPU 부하를 최적화하기 위해 모든 프레임을 추론하지 않고, 3프레임마다 1번씩 연산을 수행하여 자원 점유율을 약 30% 절감했습니다.
-```python
-PROCESS_EVERY_N = 3  # 3프레임당 1회 추론 수행
-```
-
-### 🛡️ 지능형 경보 필터링 (1.5s Trigger Delay)
-
-순간적인 오탐지(False Positive)로 인한 빈번한 경보를 방지하기 위해, 위험 상태가 **1.5초 이상 지속**될 경우에만 최종 위험(`DANGER`) 상태로 확정하고 UDP 신호를 전송합니다.
-```python
-TRIGGER_DELAY = 1.5  # 상태 확정 지연 시간(초)
-
-# 상태 유지 시간 계산 및 확정 로직
-
-if (time.time() - state_start_time) >= TRIGGER_DELAY:
-
-    confirmed_flag = current_raw_danger
-
-    send_udp(confirmed_flag)
-```
 
 ### 4. CAN 기반 분산 제어
 
