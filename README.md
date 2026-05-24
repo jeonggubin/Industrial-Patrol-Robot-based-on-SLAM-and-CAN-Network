@@ -90,7 +90,8 @@ Raspberry Pi 5에서 카메라 영상을 처리하고, YOLOv5nu 모델을 이용
 안전모 또는 안전조끼 미착용이 감지되면 경고 신호를 제어부로 전달하여 모터를 정지시킵니다.
 
 <div align="center">
-  <img src="your_motor_control_video.gif" width="80%">
+  <img src="
+" width="80%">
   <p><i>[실시간 안전 감지 및 CAN 통신 기반 모터 제어 시연 gif로 올릴 예정]</i></p>
 </div>
 
