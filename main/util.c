@@ -1,13 +1,6 @@
 /*
  * util.c  —  UDP 유틸리티
  *
- * [통합Main.c에서 이 파일로 옮긴 함수]
- *   create_udp_socket() : 원래 통합Main.c 255~281줄
- *   recv_latest_udp()   : 원래 통합Main.c 284~297줄
- *
- * [통합Main.c에 그대로 둔 함수]
- *   get_ms()      95~99줄   — 통합Main.c 내부에서만 사용
- *   elapsed_sec() 204~210줄 — 통합Main.c 내부에서만 사용
  */
 
 #include "util.h"
