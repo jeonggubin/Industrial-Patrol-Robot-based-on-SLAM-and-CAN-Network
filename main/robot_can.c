@@ -1,11 +1,10 @@
 /*
  * robot_can.c  —  로봇 전용 CAN 프로토콜 레이어
  *
- * [구조 변경]
- *   Before: robot_can_recv() 하나가 F446+F429 버퍼 소진 + 파싱 모두 담당
- *   After : can_rx_poll()    — 버퍼 소진 + 내부 정적 구조체에 파싱 결과 저장
- *           can_recv_f446()  — s_f446 구조체를 out에 복사
- *           can_recv_f429()  — s_f429 구조체를 out에 복사
+ * [구조]
+ *   can_rx_poll()    — 버퍼 소진 + 내부 정적 구조체에 파싱 결과 저장
+ *   can_recv_f446()  — s_f446 구조체를 out에 복사
+ *   can_recv_f429()  — s_f429 구조체를 out에 복사
  *
  * 호출 순서 (통합Main.c 태스크 3):
  *   can_rx_poll(can_fd);       // 버퍼 소진 + 파싱
