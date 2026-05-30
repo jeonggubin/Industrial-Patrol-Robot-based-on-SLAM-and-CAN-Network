@@ -146,7 +146,7 @@ STM32 제어 노드
 </table>
 
 - Cartographer SLAM 기반 지도 생성
-- Navi2 기반 자율 주행
+- Nav2 기반 자율 주행
 - LiDAR를 이용한 위치 추정
 
 ### 3. Vision AI 안전 감지
