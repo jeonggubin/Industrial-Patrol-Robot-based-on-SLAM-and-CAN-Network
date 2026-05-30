@@ -108,6 +108,21 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 
 로봇은 LiDAR 기반 SLAM을 이용해 작업장 지도를 생성하고, 자신의 위치를 추정하며 자율 주행을 수행합니다.
 
+<table border="0">
+  <tr>
+    <td align="center">
+      <a href="images/slam기반지도생성.png">
+        <img src="images/slam기반지도생성.png" width="100%">
+      </a>
+    </td>
+    <td align="center">
+      <a href="images/자율주행(로봇+지도).png">
+        <img src="images/자율주행(로봇+지도).png" width="100%">
+      </a>
+    </td>
+  </tr>
+</table>
+
 - Cartographer SLAM 기반 지도 생성
 - Nav2 기반 자율 주행
 - LiDAR를 이용한 위치 추정
