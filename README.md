@@ -124,9 +124,8 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 </table>
 
 - Cartographer SLAM 기반 지도 생성
-- Nav2 기반 자율 주행
+- Navi2 기반 자율 주행
 - LiDAR를 이용한 위치 추정
-- 웹 대시보드에서 SLAM 맵 확인
 
 ### 3. Vision AI 안전 감지
 
