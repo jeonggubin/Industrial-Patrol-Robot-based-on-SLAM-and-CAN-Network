@@ -64,9 +64,9 @@ AI 판단 결과를 로봇 제어부와 관제 센터로 전달하기 위해 두
 
 * **🎥 FFmpeg 기반 RTSP 스트리밍**
 
-| | |
+| RTSP 스트리밍 | 실시간 데이터 송출 로그 |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/d3e7476b-f5b5-44fc-9ab6-6729317d35a6" height="350"> | <img src="https://github.com/user-attachments/assets/c7e121fe-7ed7-480d-9889-572788740973" height="350"> |
+| <img src="https://github.com/user-attachments/assets/c7e121fe-7ed7-480d-9889-572788740973" height="350"> | <img src="https://github.com/user-attachments/assets/2795f3cd-d4bb-481a-8396-c7b04e9c5566" height="350"> |
 
 * OpenCV로 처리된 시각화 프레임을 `libx264` 코덱으로 압축하여 외부 RTSP 서버로 송출합니다.
 * `ultrafast` 프리셋과 `zerolatency` 튜닝을 적용하여, 관제 센터에서 현장 상황을 실시간(Real-time)으로 모니터링할 수 있는 저지연 스트리밍 환경을 구축했습니다.
