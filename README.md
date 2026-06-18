@@ -63,8 +63,6 @@ SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 | **Frameworks** | ROS2 (Navi2, Cartographer, rf2o), YOLOv5nu, OpenCV, PyTorch, Node.js, MediaMTX |
 | **Hardware/OS** | Raspberry Pi 5, STM32 (F446RE, F429ZI), USB-CAN 트랜시버(SN65HVD230), LiDAR(lds-02), Webcam, IMU(MPU6050), Ubuntu 24.04, STM32CubeMX |
 
-<img src="https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=C&logoColor=white" /> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black" /> <img src="https://img.shields.io/badge/CAN-FF6F61?style=flat-square&logo=diagrams.net&logoColor=white" /> <img src="https://img.shields.io/badge/RTSP-00A4EF?style=flat-square&logo=microsoft&logoColor=white" /> <img src="https://img.shields.io/badge/UDP-4285F4?style=flat-square&logo=google-home&logoColor=white" /> <img src="https://img.shields.io/badge/Socket.IO-010101?style=flat-square&logo=Socket.io&logoColor=white" /> <img src="https://img.shields.io/badge/ROS2%20(Nav2%2FCartographer)-22314E?style=flat-square&logo=ROS&logoColor=white" /> <img src="https://img.shields.io/badge/YOLOv5nu-00FFFF?style=flat-square&logo=PyTorch&logoColor=black" /> <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=OpenCV&logoColor=white" /> <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=PyTorch&logoColor=white" /> <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white" /> <img src="https://img.shields.io/badge/MediaMTX-0052CC?style=flat-square&logo=atlassian&logoColor=white" /> <img src="https://img.shields.io/badge/Linux%20(Ubuntu%2024.04)-E95420?style=flat-square&logo=Ubuntu&logoColor=white" /> <img src="https://img.shields.io/badge/STM32CubeMX-03234B?style=flat-square&logo=STMicroelectronics&logoColor=white" />
-
 ---
 
 ## 📂 디렉토리 구조
@@ -142,8 +140,13 @@ STM32 제어 노드
       </a>
     </td>
     <td align="center">
-      <a href="images/자율주행(로봇+지도).png">
-        <img src="images/자율주행(로봇+지도).png" width="100%">
+      <a href="images/자율주행_로봇+지도.png">
+        <img src="images/자율주행_로봇+지도.png" width="100%">
+      </a>
+    </td>
+    <td align="center">
+      <a href="images/tftree.png">
+        <img src="images/tftree.png" width="100%">
       </a>
     </td>
   </tr>
@@ -151,7 +154,8 @@ STM32 제어 노드
 
 - Cartographer SLAM 기반 지도 생성
 - Nav2 기반 자율 주행
-- LiDAR를 이용한 위치 추정
+- LiDAR기반의 RF2O로 가상 오도메트리 생성
+- IMU센서로 오도메트리를 보정하여 TF tree 구성 
 
 ### 3. Vision AI 안전 감지
 
@@ -196,18 +200,25 @@ Raspberry Pi 5에서 카메라 영상을 처리하고, YOLOv5nu 모델을 이용
   </table>
 </div>
 
+### 4. CAN 기반 분산 제어 및 통신 프로토콜
+본 시스템은 **Raspberry Pi 5(메인 제어기)** 와 **2대의 STM32 보드(하위 제어기)** 를 단일 CAN 통신 버스로 연결하여 역할을 완벽히 분리하고 시스템 안정성을 높였습니다. 상위 제어기는 복잡한 연산과 네트워크를 담당하고, 하위 제어기는 실시간 하드웨어 제어를 전담합니다.
 
-### 4. CAN 기반 분산 제어
+<p align="center">
+  <img src="./images/CAN_구성도.png" width="60%" alt="CAN 상태 패킷 상세 구조">
+</p>
 
-시스템은 Raspberry Pi 5와 STM32 보드를 CAN 통신으로 연결하여 역할을 분리했습니다.
+#### - 노드별 주요 역할
+| 노드 | 역할 | 상세 기능 |
+|---|---|---|
+| **Raspberry Pi 5** | **상위 통합 제어 및 AI** | - 자율주행 Nav2 제어 명령(`cmd_vel`)을 CAN 명령으로 변환 (`nav2_bridge`)<br>- Vision AI(YOLO) 객체 인식 및 위험 판별<br>- WebSocket 기반 센서 데이터 웹 대시보드 송출 (`ws_client`) |
+| **STM32F446RE** | **주행 및 구동계 제어** | - 좌/우 DC 모터 구동 및 카메라 서보 모터 제어<br>- 초음파 센서 기반 긴급 제동(AEB) 독립 수행 |
+| **STM32F429ZI** | **환경 센싱 및 시각적 알림** | - 조도 센서(Lux)를 통한 주변 밝기 감지<br>- 상황별 RGB LED, 경고용 적색 LED, 부저 알림 제어 |
 
-| 노드 | 역할 |
-|---|---|
-| Raspberry Pi 5 | 자율주행, Vision AI, 서버, 웹 대시보드 |
-| STM32F446RE | 모터 구동, 서보 제어, 초음파 안전 정지 |
-| STM32F429ZI | 조도 센서, RGB LED, 경고 LED, 부저 제어 |
-
-CAN 통신을 통해 모터 명령, 센서 상태, 경고 신호, 조명 제어 데이터를 주고받습니다.
+#### - 주요 통신 설계 특징
+* **통합 수신 로직 처리 (`can_rx_poll`):** 
+  두 대의 STM32가 동시에 데이터를 전송할 때 수신 버퍼 경합으로 인한 데이터 유실을 막기 위해, RPi의 메인 루프에서 최대 256회 버퍼를 일괄 소진합니다. 파싱된 데이터는 ID에 따라 별도의 정적 구조체에 저장되어 안정적으로 상태를 갱신합니다.
+* **실시간 데이터 브릿지:** 
+  UDP로 수신된 자율주행 명령을 실시간으로 CAN 프레임으로 변환하여 모터로 전달하며, 반대로 CAN을 통해 수집된 로버의 하드웨어 상태 데이터는 지연 없이 WebSocket을 통해 원격 서버(대시보드)로 전송됩니다.
 
 ### 5. 구동 및 안전 정지
 
@@ -234,8 +245,9 @@ STM32F446RE는 좌/우 DC 모터와 카메라 서보를 제어합니다.
 * **정지 해제:** 측정 거리가 **20cm 이상 2회 연속** 잡힐 경우 다시 정상 주행이 가능하도록 복귀됩니다. (센서 타임아웃 200ms 초과 시에도 강제 정지 처리)
   <img width="694" height="194" alt="ultrasonic_logic" src="https://github.com/user-attachments/assets/43046851-b81f-4fc1-adf6-41812cf4f5ac" />
 
-### 6. 웹 대시보드
+### 6. 웹 대시보드 및 서버
 
+#### 웹 대시보드
 웹 대시보드는 로봇의 상태를 실시간으로 확인하고 원격 제어하기 위한 화면입니다.
 <table border="0">
   <tr>
@@ -319,8 +331,8 @@ STM32F446RE는 좌/우 DC 모터와 카메라 서보를 제어합니다.
 
 | 이름 | 역할 | 담당 파트 |
 |----------|----------|----------|
-| 이상현 | Project Leader/Backend | SLAM 자율주행 및 서버, (추가) |
+| 이상현 | Project Leader/Backend | SLAM 자율주행 및 서버 |
 | 김현주 | Project Manager/Firmware | STM32 기능제어 |
-| 김준기 | Backend | Network(Can), Main 프로세스 |
+| 김준기 | Backend | Network(Can), Main 프로세스 제작 |
 | 허준형 | Firmware/Frontend | STM32 구동제어, 웹 관제 대시보드 |
 | 정구빈 | Backend/Edge AI | Vision AI 및 영상/데이터 송신 파이프라인 구축 |
