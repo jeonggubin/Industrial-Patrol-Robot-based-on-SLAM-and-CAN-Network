@@ -337,4 +337,4 @@ STM32F446RE는 좌/우 DC 모터와 카메라 서보를 제어합니다.
 | 김현주 | Project Manager/Firmware | STM32 기능제어 |
 | 김준기 | Backend | Network(Can), Main 프로세스 제작 |
 | 허준형 | Firmware/Frontend | STM32 구동제어, 웹 관제 대시보드 |
-| 정구빈 | Backend/Edge AI | Vision AI 및 영상/데이터 송신 파이프라인 구축 |
+| 정구빈 | Backend/Edge AI | Vision AI 및 영상/데이터 송수신 파이프라인 구축 |
