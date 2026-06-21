@@ -10,7 +10,7 @@
 - Servo Motor PWM 출력 불안정 문제 분석
 - 전원 공급 및 GND 연결 문제 분석을 통한 하드웨어 안정화
 
-## 사용 기술
+## ⚙️ 사용 기술
 
 ### Embedded
 
@@ -42,9 +42,9 @@
 - Ultrasonic Sensor
 - CAN Transceiver
 
-## 시스템 구조
+## 🖥️ 시스템 구조
+<img width="823" height="587" alt="image (2)" src="https://github.com/user-attachments/assets/1e4a15e7-69c7-4938-b885-606c463b96da" />
 
-추후 시스템 구조도를 추가할 예정입니다.
 
 ```text
 Raspberry Pi 5
@@ -63,9 +63,22 @@ STM32F429ZI
 STM32F446
  └── Motor Control
 ```
+## 🔍 핀맵 (Pin Mapping)
+<img width="1920" height="1080" alt="작업장 순찰 로봇 pptx" src="https://github.com/user-attachments/assets/f1b3982c-c19e-4f1f-9ed7-43f5bfd354db" />
 
+| 분류 | 핀 번호 (Pin) | 기능 (Function) | 연결 대상 (Target) | 비고 (Description) |
+| :---: | :---: | :---: | :---: | :--- |
+| **통신** | PB8 | CAN1_RX | STM32F446 (PA11) | 보드 간 통신 인터페이스 (Baudrate: 500kbps) |
+| **통신** | PB9 | CAN1_TX | STM32F446 (PA12) | 보드 간 통신 인터페이스 (Baudrate: 500kbps) |
+| **센서** | PA3 | ADC1_IN3 | 포토센서 (CdS) | 연속 샘플링 모드, 데이터 정밀도를 위해 56 사이클 이상의 샘플링 타임 확보 |
+| **출력** | PB4 | TIM3_CH1 (PWM) | 경고 부저 (Buzzer) | PSC: 179, ARR: 999 설정 / 인간 청각 민감 대역 및 공진 주파수(3~4kHz) 제어, 50% 듀티비 |
+| **출력** | PE9 | TIM1_CH1 (PWM) | RGB LED (Red) | PSC: 179, ARR: 999 (1kHz 주파수), 왜곡(Glitch) 방지를 위한 Auto-reload preload 활성화 |
+| **출력** | PE11 | TIM1_CH2 (PWM) | RGB LED (Green) | PSC: 179, ARR: 999 (1kHz 주파수), 왜곡(Glitch) 방지를 위한 Auto-reload preload 활성화 |
+| **출력** | PE13 | TIM1_CH3 (PWM) | RGB LED (Blue) | PSC: 179, ARR: 999 (1kHz 주파수), 왜곡(Glitch) 방지를 위한 Auto-reload preload 활성화 |
+| **출력** | PF15 | GPIO_Output | 단색 LED (단단) | 일반 고휘도 LED 기준 상태 표시용 디지털 출력 (No pull-up/pull-down) |
+| **인터페이스**| - | RMII / USB / UART | 이더넷 및 주변 장치 노드 | LAN8742A-CZ-TR 인터페이스 연동 및 관제 센터향 저지연 인프라 확장성 확보 |
 
-### 📌 주요 개발 내용
+## 📌 주요 개발 내용
 
 #### 1. CAN 통신 기반 실시간 분산 제어 네트워크 구현
 * **비동기 인터럽트 기반 명령 수신:** 상위 제어기(Raspberry Pi 5)로부터 하달되는 비동기 제어 명령을 실시간으로 처리하기 위해 `CAN RX FIFO0` 메시지 보류 인터럽트를 활용했습니다.
