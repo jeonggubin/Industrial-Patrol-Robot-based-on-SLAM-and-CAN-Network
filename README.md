@@ -339,4 +339,4 @@ STM32F429ZI 보드는 방대한 GPIO 확장성을 바탕으로 시스템의 '센
 | 김현주 | Project Manager/Firmware | STM32 기능제어 |
 | 김준기 | Backend | Network(Can), Main 프로세스 제작 |
 | 허준형 | Firmware/Frontend | STM32 구동제어, 웹 관제 대시보드 |
-| 정구빈 | Backend/Edge AI | Vision AI 및 영상/데이터 송수신 파이프라인 구축, 위험 감지 제어망(UDP/CAN) 연동 |
+| 정구빈 | Backend/Edge AI | Vision AI 스트리밍 파이프라인 구축 및 위험 감지 제어망(UDP/CAN) 연동 |
