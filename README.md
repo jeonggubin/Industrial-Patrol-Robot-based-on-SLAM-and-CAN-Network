@@ -2,10 +2,6 @@
 SLAM 및 CAN 네트워크 기반 산업용 순찰 로봇
 
 <table>
-  <tr>
-    <td align="center" width="25%">
-      <img width="100%" src="./images/로봇전면부.png" alt="로봇 전면부" />
-    </td>
     <td align="center">
       <img width="100%" src="./images/로봇후면부.png" alt="로봇 후면부" />
     </td>
