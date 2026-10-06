@@ -29,7 +29,7 @@
 - Raspberry Pi 5
 - ROS2
 - LiDAR
-- RealSense D435
+- Webcam
 - YOLOv5
 - OpenCV
 
