@@ -326,13 +326,3 @@ STM32F429ZI 보드는 방대한 GPIO 확장성을 바탕으로 시스템의 '센
   현재의 RTSP 변환 지연(1.5초)을 해결하기 위해 WebRTC 기반 스트리밍 서버를 구축하고, 관리자 간 상태 공유 및 보안 시스템을 고도화할 방침이다.
 
 ---
-
-## 💁‍♂️ 팀원
-
-| 이름 | 역할 | 담당 파트 |
-|----------|----------|----------|
-| 이상현 | Project Leader/Backend | SLAM 자율주행 및 서버 |
-| 김현주 | Project Manager/Firmware | STM32 기능제어 |
-| 김준기 | Backend | Network(Can), Main 프로세스 제작 |
-| 허준형 | Firmware/Frontend | STM32 구동제어, 웹 관제 대시보드 |
-| 정구빈 | Backend/Edge AI | Vision AI 스트리밍 파이프라인 구축 및 위험 감지 제어망(UDP/CAN) 연동 |
