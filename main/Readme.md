@@ -301,7 +301,7 @@ if (received == 1 && s_state == STATE_NORMAL && !in_cooldown) {
 - CAN 어댑터는 `/dev/ttyUSB0`에 연결
 - CAN bitrate 500 kbps (STM32와 동일하게 설정)
 - Node.js 서버 IP/포트 일치 확인
-- ROS2 Nav2 `cmd_vel_to_can_udp.py` 노드 실행 확인
+- ROS2 Nav2 `slam/cmd_vel_to_robot.py` 노드 실행 확인
 - YOLO 스크립트 경로 환경에 맞게 수정
 
 ### 빌드
@@ -334,7 +334,7 @@ make clean
 - YOLO 스크립트 경로(`/home/lee/project/test4/yolo_streamer.py`)는 실행 환경에 맞게 수정해야 합니다.
 - CAN bitrate는 STM32와 반드시 동일하게 500 kbps로 설정되어 있어야 합니다.
 - 실행 시 `sudo` 권한이 필요합니다 (CAN 어댑터 접근, YOLO 스크립트 실행).
-- Nav2 자율주행은 `cmd_vel_to_can_udp.py` 브릿지 노드가 함께 실행되어야 동작합니다.
+- Nav2 자율주행은 `slam/cmd_vel_to_robot.py` 브릿지 노드가 함께 실행되어야 동작합니다.
 
 ---
 

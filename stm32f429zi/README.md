@@ -25,11 +25,11 @@ STM32F429ZI
  ├── LED Control
  ├── Buzzer Control
  ├── RGB LED Control
- ├── Photo Sensor ADC
- └── Servo Motor PWM
-        ↓
+ └── Photo Sensor ADC
+
 STM32F446
- └── Motor Control
+ ├── DC Motor Control
+ └── Servo Motor PWM
 ```
 ## 🔍 핀맵 (Pin Mapping)
 <img width="1920" height="1080" alt="작업장 순찰 로봇 pptx" src="https://github.com/user-attachments/assets/f1b3982c-c19e-4f1f-9ed7-43f5bfd354db" />
@@ -38,8 +38,8 @@ STM32F446
 | :---: | :---: | :---: | :---: | :--- |
 | **통신** | PB8 | CAN1_RX | STM32F446 (PA11) | 보드 간 통신 인터페이스 (Baudrate: 500kbps) |
 | **통신** | PB9 | CAN1_TX | STM32F446 (PA12) | 보드 간 통신 인터페이스 (Baudrate: 500kbps) |
-| **센서** | PA3 | ADC1_IN3 | 포토센서 (CdS) | 연속 샘플링 모드, 데이터 정밀도를 위해 56 사이클 이상의 샘플링 타임 확보 |
-| **출력** | PB4 | TIM3_CH1 (PWM) | 경고 부저 (Buzzer) | PSC: 179, ARR: 999 설정 / 인간 청각 민감 대역 및 공진 주파수(3~4kHz) 제어, 50% 듀티비 |
+| **센서** | PA3 | ADC1_IN3 | 포토센서 (CdS) | 단일 변환(Polling) 모드, 조도 센서의 느린 응답을 고려해 84 사이클 샘플링 타임 확보 |
+| **출력** | PB4 | TIM3_CH1 (PWM) | 경고 부저 (Buzzer) | PSC: 167, ARR: 999 설정 / APB1 타이머 클럭 84MHz 기준 500Hz 출력, 50% 듀티비 |
 | **출력** | PE9 | TIM1_CH1 (PWM) | RGB LED (Red) | PSC: 179, ARR: 999 (1kHz 주파수), 왜곡(Glitch) 방지를 위한 Auto-reload preload 활성화 |
 | **출력** | PE11 | TIM1_CH2 (PWM) | RGB LED (Green) | PSC: 179, ARR: 999 (1kHz 주파수), 왜곡(Glitch) 방지를 위한 Auto-reload preload 활성화 |
 | **출력** | PE13 | TIM1_CH3 (PWM) | RGB LED (Blue) | PSC: 179, ARR: 999 (1kHz 주파수), 왜곡(Glitch) 방지를 위한 Auto-reload preload 활성화 |

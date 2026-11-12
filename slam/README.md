@@ -59,8 +59,8 @@ Raspberry Pi 5의 하드웨어 리소스 한계를 고려하여 최적화된 파
 * **Costmap 튜닝**: 로봇의 크기(`robot_radius`)는 0.22m로 반영되었으며, 장애물 인식의 최대 범위(`obstacle_max_range`)는 2.5m, 레이트레이싱(`raytrace_max_range`)은 3.0m로 튜닝되었습니다.
 * **Planner Server**: A* 알고리즘 대신 `NavfnPlanner`를 기본 플래너로 사용합니다 (`use_astar: false`).
 
-### 4. Custom UDP 제어 통신 (`nav2_to_udp_mapper.py`)
-* 자율주행 시 Nav2의 `cmd_vel` (`geometry_msgs.msg.Twist`) 형태 제어 명령을 수신하여, 외부 시스템으로 전달할 수 있도록 UDP 소켓 통신을 지원하는 커스텀 매퍼 노드가 구현되어 있습니다.
+### 4. Custom UDP 제어 통신 (`cmd_vel_to_robot.py`)
+* 자율주행 시 Nav2의 `cmd_vel` (`geometry_msgs.msg.Twist`) 형태 제어 명령을 수신하여 좌/우 모터 속도로 변환한 뒤, UDP(`127.0.0.1:10000`)로 메인 제어 프로그램에 전달하는 커스텀 매퍼 노드(`nav2_to_udp_mapper`)가 구현되어 있습니다.
 
 ---
 
